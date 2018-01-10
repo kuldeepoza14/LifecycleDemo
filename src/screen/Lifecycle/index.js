@@ -5,7 +5,6 @@
  */
 
 import React, { Component } from 'react';
-var shallowCompare = require('react-addons-shallow-compare');
 import {
     StyleSheet,
     Text,
@@ -24,7 +23,7 @@ export default class Lifecycle extends Component {
     {
         console.log("Constroctor(getInitState) Method Called")
         super(props);
-        this.state={count:0,data:"abc"}
+        this.state={count:0}
     }
 
     componentWillMount()
@@ -47,15 +46,17 @@ export default class Lifecycle extends Component {
 
     shouldComponentUpdate(nextProps,nextState)
     {
-        if(this.state.count ==nextState.count) {
+        if(JSON.stringify(this.state) === JSON.stringify(nextState)) {
+            console.log("NewState  ", nextState);
+            console.log("OldState  ", this.state);
             console.log("This value is already set");
             return false;
         }
         else {
             console.log("shouldComponentUpdate Method Called");
-            console.log("WillNextProps  ", nextProps);
-            console.log("NewState  ", nextState[0]);
-            console.log("OldState  ", this.state.values);
+            console.log("jSonStringfy  ", JSON.stringify(this.state));
+            console.log("NewState  ", nextState);
+            console.log("OldState  ", this.state);
             return true;
         }
     }
@@ -63,15 +64,15 @@ export default class Lifecycle extends Component {
     componentWillUpdate(nextProps, nextState){
 
         console.log('componentWillUpdate called');
-        console.log("NewState  ", nextState.count);
-        console.log("OldState  ", this.state.count);
+     //   console.log("NewState  ", nextState.count);
+    //    console.log("OldState  ", this.state.count);
     }
 
     componentDidUpdate(prevProps, prevState){
 
         console.log('componentDidUpdate called');
-        console.log("OldState  ", prevState.count);
-        console.log("NewState ", this.state.count);
+     //   console.log("OldState  ", prevState.count);
+     //   console.log("NewState ", this.state.count);
 
     }
     componentWillUnmount()

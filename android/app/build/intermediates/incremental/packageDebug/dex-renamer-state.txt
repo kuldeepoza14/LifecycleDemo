@@ -1,0 +1,4 @@
+#Tue Jan 09 11:44:49 IST 2018
+base.0=/home/megha/WMT/React-Native/Demo/LifecycleDemo/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+renamed.0=classes.dex
+file.0=/home/megha/WMT/React-Native/Demo/LifecycleDemo/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
